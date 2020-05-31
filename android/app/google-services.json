@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "73531487310",
+    "firebase_url": "https://fir-togrid.firebaseio.com",
+    "project_id": "fir-togrid",
+    "storage_bucket": "fir-togrid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:73531487310:android:9fb944c048626e23217f1f",
+        "android_client_info": {
+          "package_name": "com.example.firebasetogrid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "73531487310-4ucc0lib58br88qkgvb0dummjj0ogt9q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMoeqe01XlJBGtOi5VZpsa5CViRpqBCmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "73531487310-4ucc0lib58br88qkgvb0dummjj0ogt9q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
