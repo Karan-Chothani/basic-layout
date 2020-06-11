@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'dart:typed_data';
 import 'package:firebase_storage/firebase_storage.dart';
 
-class ImagesScreen extends StatelessWidget {
+class NoseScreen extends StatelessWidget {
 
   Widget makeImagesGrid(){
     return GridView.builder(
-        itemCount: 8,
+        itemCount: 3,
         gridDelegate:
         SliverGridDelegateWithFixedCrossAxisCount (crossAxisCount: 3),
         itemBuilder: (context,index){
@@ -18,7 +18,8 @@ class ImagesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Eyes"),
+        title: Text("Nose"),
+        backgroundColor: Colors.purple,
       ),
       body: Container(
         child: makeImagesGrid(),
@@ -44,11 +45,11 @@ class ImageGridItem extends StatefulWidget {
 class _ImageGridItemState extends State<ImageGridItem> {
 
   Uint8List imagefile;
-  StorageReference eyeReference = FirebaseStorage.instance.ref().child("eyes");
+  StorageReference eyeReference = FirebaseStorage.instance.ref().child("noses");
 
   getImage(){
     int MAX_SIZE = 4*1024*1024;
-    eyeReference.child("image_${widget._index}.jpg").getData(MAX_SIZE).then((data){
+    eyeReference.child("nose${widget._index}.jpg").getData(MAX_SIZE).then((data){
       this.setState((){
         imagefile = data;
       });
@@ -65,9 +66,9 @@ class _ImageGridItemState extends State<ImageGridItem> {
         elevation: 10.0,
         child: new Column(
           children: <Widget>[
-            new Image.memory(imagefile, fit: BoxFit.cover,height: 90.0,width: 100.0,),
+            new Image.memory(imagefile, fit: BoxFit.cover,),
             new SizedBox(height: 5.0,), //to add space
-            new Text("Eye"),
+            new Text("Nose"),
           ],
         ),
         //child: new Image.memory(imagefile, fit: BoxFit.cover,height: 90.0,width: 100.0,),
