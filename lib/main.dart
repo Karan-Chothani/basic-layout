@@ -50,6 +50,8 @@ class _HomeState extends State<Home> {
         child: new Column(
           children: <Widget>[
             new Container(
+                height: 50.0,
+                width: 388.0,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
@@ -153,7 +155,7 @@ class _HomeState extends State<Home> {
                   ],
                 ),
               ),
-            //new Container(child: new SizedBox(height: 50.0,width: 50.0,),),
+            new Container(child: new SizedBox(height: 586.0,width: 1000.0,),),
             new Container(
               child: RaisedButton(
                 color: Colors.purple,
