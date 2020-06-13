@@ -1,9 +1,13 @@
-import 'package:firebasetogrid/EyeScreen.dart';
 import 'package:flutter/material.dart';
 
-import 'EyeScreen.dart';
-import 'NoseScreen.dart';
-import 'LipsScreen.dart';
+import 'TopButtons/EyeScreen.dart';
+import 'TopButtons/NoseScreen.dart';
+import 'TopButtons/LipsScreen.dart';
+
+import 'Tabs/ListTab.dart';
+import 'Tabs/UserTab.dart';
+import 'Tabs/NotificationTab.dart';
+import 'Tabs/StarTab.dart';
 
 void main (){
   runApp(
@@ -213,6 +217,26 @@ class _HomeState extends State<Home> {
   void onTabTapped(int index) {
     setState(() {
       _currentIndex = index;
+      switch (_currentIndex){
+        case 0:{ }
+        break;
+        case 1:{ Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ListTab()));}
+        break;
+        case 2:{ Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => UserTab()));}
+        break;
+        case 3:{ Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => NotificationTab()));}
+        break;
+        case 4:{ Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => StarTab()));}
+        break;
+      }
     });
   }
 }
