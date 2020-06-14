@@ -175,11 +175,9 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-            //buttonrecommend,
           ],
         ),
       ),
-
       bottomNavigationBar:BottomNavigationBar(
         type: BottomNavigationBarType.shifting,
           currentIndex: _currentIndex,
@@ -240,26 +238,3 @@ class _HomeState extends State<Home> {
     });
   }
 }
-
-Widget buttonrecommend = new Container(
-  child: new Column(
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: <Widget>[
-      RaisedButton(
-        color: Colors.purple,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10)),
-        onPressed: () {
-          Navigator(onGenerateRoute: null);
-        },
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            'Recommendation',
-            style: TextStyle(fontSize: 20, color: Colors.white),
-          ),
-        ),
-      ),
-    ],
-  ),
-);
