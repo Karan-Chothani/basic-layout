@@ -71,7 +71,6 @@ class _ImageGridItemState extends State<ImageGridItem> {
             new Text("Eye"),
           ],
         ),
-        //child: new Image.memory(imagefile, fit: BoxFit.cover,height: 90.0,width: 100.0,),
       );
     }
   }

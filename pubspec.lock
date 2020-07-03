@@ -118,6 +118,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_speed_dial:
+    dependency: "direct main"
+    description:
+      name: flutter_speed_dial
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.5"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -163,6 +170,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.12.6"
+  matrix_gesture_detector:
+    dependency: "direct main"
+    description:
+      name: matrix_gesture_detector
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0"
   meta:
     dependency: transitive
     description:
@@ -205,13 +219,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.5"
-  showcaseview:
-    dependency: "direct main"
-    description:
-      name: showcaseview
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.5"
   sky_engine:
     dependency: transitive
     description: flutter

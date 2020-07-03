@@ -45,11 +45,11 @@ class ImageGridItem extends StatefulWidget {
 class _ImageGridItemState extends State<ImageGridItem> {
 
   Uint8List imagefile;
-  StorageReference eyeReference = FirebaseStorage.instance.ref().child("noses");
+  StorageReference noseReference = FirebaseStorage.instance.ref().child("noses");
 
   getImage(){
     int MAX_SIZE = 4*1024*1024;
-    eyeReference.child("nose${widget._index}.jpg").getData(MAX_SIZE).then((data){
+    noseReference.child("nose${widget._index}.jpg").getData(MAX_SIZE).then((data){
       this.setState((){
         imagefile = data;
       });

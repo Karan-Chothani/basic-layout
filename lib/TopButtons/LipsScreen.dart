@@ -45,11 +45,11 @@ class ImageGridItem extends StatefulWidget {
 class _ImageGridItemState extends State<ImageGridItem> {
 
   Uint8List imagefile;
-  StorageReference eyeReference = FirebaseStorage.instance.ref().child("lips");
+  StorageReference lipsReference = FirebaseStorage.instance.ref().child("lips");
 
   getImage(){
     int MAX_SIZE = 4*1024*1024;
-    eyeReference.child("lips${widget._index}.jpg").getData(MAX_SIZE).then((data){
+    lipsReference.child("lips${widget._index}.jpg").getData(MAX_SIZE).then((data){
       this.setState((){
         imagefile = data;
       });
@@ -66,7 +66,7 @@ class _ImageGridItemState extends State<ImageGridItem> {
         elevation: 10.0,
         child: new Column(
           children: <Widget>[
-            new Image.memory(imagefile, fit: BoxFit.cover,     height: 50.0,width: 100.0),
+            new Image.memory(imagefile, fit: BoxFit.cover, height: 50.0,width: 100.0),
             new SizedBox(height: 5.0,), //to add space
             new Text("Lips"),
           ],
