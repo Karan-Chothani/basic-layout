@@ -51,8 +51,8 @@ class _HomeState extends State<Home> {
   final ValueNotifier<Matrix4> notifier3 = ValueNotifier(Matrix4.identity());
   final ValueNotifier<Matrix4> notifier4 = ValueNotifier(Matrix4.identity());
 
-  int h = 100;
-  int w = 100;
+  double h = 100;
+  double w = 100;
 
   @override
   Widget build(BuildContext context) {
@@ -198,13 +198,14 @@ class _HomeState extends State<Home> {
                                     Align(
                                       alignment: Alignment(0.0,-0.85),
                                       child: Container(
-                                        width: 100.0,
-                                        height: 100.0,
+                                        width: 100,
+                                        height: 100,
+                                        color: Colors.green[100],
                                         //color: Colors.purple,
                                         child: DragTarget(
                                           builder: (context, List<int> candidateData, rejectedData) {
                                             print(candidateData);
-                                            return Center(child: Image(image: AssetImage('images/part1.jpg'),),);
+                                            return Center(child: Image(image: AssetImage('images/part1.jpg'),height: h,width: w,),);
                                           },
                                         ),
                                       ),
@@ -216,7 +217,7 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                       ),
-              ]
+                    ]
                   ),
                   new Stack(
                       children: <Widget>[
@@ -359,9 +360,7 @@ class _HomeState extends State<Home> {
                             backgroundColor: Colors.purple,
                             label: "Zoom In",
                             labelStyle: TextStyle(fontSize: 14.5),
-                            onTap: () {
-                              print("Zoom In");
-                            }
+                            onTap: zoomin,
                             ),
                         SpeedDialChild(
                             child: Icon(Icons.zoom_out, size: 30,),
@@ -369,9 +368,7 @@ class _HomeState extends State<Home> {
                             backgroundColor: Colors.purple,
                             label: "Zoom Out",
                             labelStyle: TextStyle(fontSize: 14.5),
-                            onTap: () {
-                              print("Zoom Out");
-                            }
+                            onTap: zoomout,
                             ),
                       ],
                     ),
@@ -465,6 +462,24 @@ class _HomeState extends State<Home> {
             MaterialPageRoute(builder: (context) => StarTab()));}
         break;
       }
+    });
+  }
+  void zoomin ()
+  {
+    setState(() {
+      h = h + 20;
+      w = w + 20;
+      print(h);
+      print(w);
+    });
+  }
+  void zoomout ()
+  {
+    setState(() {
+      h = h - 20;
+      w = w - 20;
+      print(h);
+      print(w);
     });
   }
 }
