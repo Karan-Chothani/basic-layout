@@ -12,16 +12,12 @@ import 'Tabs/UserTab.dart';
 import 'Tabs/NotificationTab.dart';
 import 'Tabs/StarTab.dart';
 
-void main (){
-  runApp(
-    new MaterialApp(
-     title: "Firegrid demo",
-      theme: ThemeData(
-        primarySwatch: Colors.purple
-      ),
-      home: App(),
-    )
-  );
+void main() {
+  runApp(new MaterialApp(
+    title: "Firegrid demo",
+    theme: ThemeData(primarySwatch: Colors.purple),
+    home: App(),
+  ));
 }
 
 class App extends StatelessWidget {
@@ -41,7 +37,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   int _currentIndex = 0;
 
   double scale = 0.0;
@@ -57,121 +52,138 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     appBar: AppBar(
+      appBar: AppBar(
         title: Text('Firegrid demo'),
         centerTitle: true,
         backgroundColor: Colors.purple,
       ),
-
       body: Center(
         child: new Column(
           children: <Widget>[
             new Container(
-                color: Colors.blue[100],
-                height: 50,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.all(2.0),
-                      child: new Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          RaisedButton(
-                            color: Colors.purple,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                            onPressed: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context)=>EyeScreen())
-                              );
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Eyes',
-                                style: TextStyle(fontSize: 20, color: Colors.white),
-                              ),
+              color: Colors.blue[100],
+              height: 50,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.all(2.0),
+                    child: new Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        RaisedButton(
+                          color: Colors.purple,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => EyeScreen()));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              'Eyes',
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.white),
                             ),
                           ),
-                          SizedBox(width: 5.0,),
-                          RaisedButton(
-                            color: Colors.purple,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                            onPressed: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context)=>NoseScreen())
-                              );
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Nose',
-                                style: TextStyle(fontSize: 20, color: Colors.white),
-                              ),
+                        ),
+                        SizedBox(
+                          width: 5.0,
+                        ),
+                        RaisedButton(
+                          color: Colors.purple,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => NoseScreen()));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              'Nose',
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.white),
                             ),
                           ),
-                          SizedBox(width: 5.0,),
-                          RaisedButton(
-                            color: Colors.purple,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                            onPressed: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context)=>LipsScreen())
-                              );
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Lips',
-                                style: TextStyle(fontSize: 20, color: Colors.white),
-                              ),
+                        ),
+                        SizedBox(
+                          width: 5.0,
+                        ),
+                        RaisedButton(
+                          color: Colors.purple,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LipsScreen()));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              'Lips',
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.white),
                             ),
                           ),
-                          SizedBox(width: 5.0,),
-                          RaisedButton(
-                            color: Colors.purple,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                            onPressed: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context)=>EyeScreen())
-                              );
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Cheeks',
-                                style: TextStyle(fontSize: 20, color: Colors.white),
-                              ),
+                        ),
+                        SizedBox(
+                          width: 5.0,
+                        ),
+                        RaisedButton(
+                          color: Colors.purple,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => EyeScreen()));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              'Cheeks',
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.white),
                             ),
                           ),
-                          SizedBox(width: 5.0,),
-                          RaisedButton(
-                            color: Colors.purple,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                            onPressed: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context)=>EyeScreen())
-                              );
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Face Style',
-                                style: TextStyle(fontSize: 20, color: Colors.white),
-                              ),
+                        ),
+                        SizedBox(
+                          width: 5.0,
+                        ),
+                        RaisedButton(
+                          color: Colors.purple,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => EyeScreen()));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              'Face Style',
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.white),
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
+            ),
             new Container(
               color: Colors.purple[100],
               height: 574.5,
@@ -193,16 +205,23 @@ class _HomeState extends State<Home> {
                           child: Stack(
                             children: <Widget>[
                               Align(
-                                alignment: Alignment(0.0,-0.85),
+                                alignment: Alignment(0.0, -0.85),
                                 child: Container(
                                   width: w,
                                   height: h,
                                   color: Colors.green[100],
                                   //color: Colors.purple,
                                   child: DragTarget(
-                                    builder: (context, List<int> candidateData, rejectedData) {
+                                    builder: (context, List<int> candidateData,
+                                        rejectedData) {
                                       print(candidateData);
-                                      return Center(child: Image(image: AssetImage('images/part1.jpg'),height: h,width: w,),);
+                                      return Center(
+                                        child: Image(
+                                          image: AssetImage('images/part1.jpg'),
+                                          height: h,
+                                          width: w,
+                                        ),
+                                      );
                                     },
                                   ),
                                 ),
@@ -228,15 +247,22 @@ class _HomeState extends State<Home> {
                           child: Stack(
                             children: <Widget>[
                               Align(
-                                alignment: Alignment(0.0,-0.35),
+                                alignment: Alignment(0.0, -0.35),
                                 child: Container(
                                   width: h,
                                   height: w,
                                   //color: Colors.purple,
                                   child: DragTarget(
-                                    builder: (context, List<int> candidateData, rejectedData) {
+                                    builder: (context, List<int> candidateData,
+                                        rejectedData) {
                                       print(candidateData);
-                                      return Center(child: Image(image: AssetImage('images/part2.jpg'),height: h,width: w,),);
+                                      return Center(
+                                        child: Image(
+                                          image: AssetImage('images/part2.jpg'),
+                                          height: h,
+                                          width: w,
+                                        ),
+                                      );
                                     },
                                   ),
                                 ),
@@ -262,15 +288,22 @@ class _HomeState extends State<Home> {
                           child: Stack(
                             children: <Widget>[
                               Align(
-                                alignment: Alignment(0.0,0.15),
+                                alignment: Alignment(0.0, 0.15),
                                 child: Container(
                                   width: w,
                                   height: h,
                                   //color: Colors.purple,
                                   child: DragTarget(
-                                    builder: (context, List<int> candidateData, rejectedData) {
+                                    builder: (context, List<int> candidateData,
+                                        rejectedData) {
                                       print(candidateData);
-                                      return Center(child: Image(image: AssetImage('images/part3.jpg'),height: h,width: w,),);
+                                      return Center(
+                                        child: Image(
+                                          image: AssetImage('images/part3.jpg'),
+                                          height: h,
+                                          width: w,
+                                        ),
+                                      );
                                     },
                                   ),
                                 ),
@@ -296,15 +329,22 @@ class _HomeState extends State<Home> {
                           child: Stack(
                             children: <Widget>[
                               Align(
-                                alignment: Alignment(0.0,0.65),
+                                alignment: Alignment(0.0, 0.65),
                                 child: Container(
                                   width: w,
                                   height: h,
                                   //color: Colors.purple,
                                   child: DragTarget(
-                                    builder: (context, List<int> candidateData, rejectedData) {
+                                    builder: (context, List<int> candidateData,
+                                        rejectedData) {
                                       print(candidateData);
-                                      return Center(child: Image(image: AssetImage('images/part4.jpg'),height: h ,width: w,),);
+                                      return Center(
+                                        child: Image(
+                                          image: AssetImage('images/part4.jpg'),
+                                          height: h,
+                                          width: w,
+                                        ),
+                                      );
                                     },
                                   ),
                                 ),
@@ -330,7 +370,10 @@ class _HomeState extends State<Home> {
                     //closeManually: true,
                     children: [
                       SpeedDialChild(
-                        child: Icon(Icons.zoom_in, size: 30,),
+                        child: Icon(
+                          Icons.zoom_in,
+                          size: 30,
+                        ),
                         foregroundColor: Colors.white,
                         backgroundColor: Colors.purple,
                         label: "Zoom In",
@@ -338,7 +381,10 @@ class _HomeState extends State<Home> {
                         onTap: zoomin,
                       ),
                       SpeedDialChild(
-                        child: Icon(Icons.zoom_out, size: 30,),
+                        child: Icon(
+                          Icons.zoom_out,
+                          size: 30,
+                        ),
                         foregroundColor: Colors.white,
                         backgroundColor: Colors.purple,
                         label: "Zoom Out",
@@ -357,13 +403,11 @@ class _HomeState extends State<Home> {
                 children: <Widget>[
                   new Align(
                     alignment: Alignment.center,
-                    child:
-                    new RaisedButton(
+                    child: new RaisedButton(
                       color: Colors.purple,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
-                      onPressed: () {
-                      },
+                      onPressed: () {},
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
@@ -371,7 +415,7 @@ class _HomeState extends State<Home> {
                           style: TextStyle(fontSize: 23, color: Colors.white),
                         ),
                       ),
-                  ),
+                    ),
                   ),
                 ],
               ),
@@ -381,65 +425,76 @@ class _HomeState extends State<Home> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.shifting,
-          currentIndex: _currentIndex,
+        currentIndex: _currentIndex,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home ,color: Colors.white),
-            title: new Text('Home' , style: TextStyle(color: Colors.white)),
+            icon: Icon(Icons.home, color: Colors.white),
+            title: new Text('Home', style: TextStyle(color: Colors.white)),
             backgroundColor: Colors.purple,
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.list,color: Colors.white),
-              title: new Text('List', style: TextStyle(color: Colors.white)),
-              backgroundColor: Colors.purple,
+            icon: Icon(Icons.list, color: Colors.white),
+            title: new Text('List', style: TextStyle(color: Colors.white)),
+            backgroundColor: Colors.purple,
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person,color: Colors.white),
-              title: new Text('User', style: TextStyle(color: Colors.white)),
-              backgroundColor: Colors.purple,
+            icon: Icon(Icons.person, color: Colors.white),
+            title: new Text('User', style: TextStyle(color: Colors.white)),
+            backgroundColor: Colors.purple,
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.notifications,color: Colors.white),
-              title: new Text('Notification', style: TextStyle(color: Colors.white)),
-              backgroundColor: Colors.purple,
+            icon: Icon(Icons.notifications, color: Colors.white),
+            title:
+                new Text('Notification', style: TextStyle(color: Colors.white)),
+            backgroundColor: Colors.purple,
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.stars,color: Colors.white),
-              title: new Text('Star', style: TextStyle(color: Colors.white)),
-              backgroundColor: Colors.purple,
+            icon: Icon(Icons.stars, color: Colors.white),
+            title: new Text('Star', style: TextStyle(color: Colors.white)),
+            backgroundColor: Colors.purple,
           ),
         ],
         onTap: onTabTapped,
       ),
     );
   }
+
   void onTabTapped(int index) {
     setState(() {
       _currentIndex = index;
-      switch (_currentIndex){
-        case 0:{ }
-        break;
-        case 1:{ Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => ListTab()));}
-        break;
-        case 2:{ Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => UserTab()));}
-        break;
-        case 3:{ Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => NotificationTab()));}
-        break;
-        case 4:{ Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => StarTab()));}
-        break;
+      switch (_currentIndex) {
+        case 0:
+          {}
+          break;
+        case 1:
+          {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => ListTab()));
+          }
+          break;
+        case 2:
+          {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => UserTab()));
+          }
+          break;
+        case 3:
+          {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => NotificationTab()));
+          }
+          break;
+        case 4:
+          {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => StarTab()));
+          }
+          break;
       }
     });
   }
-  void zoomin ()
-  {
+
+  void zoomin() {
     setState(() {
       h = h + 20;
       w = w + 20;
@@ -447,8 +502,8 @@ class _HomeState extends State<Home> {
       print(w);
     });
   }
-  void zoomout ()
-  {
+
+  void zoomout() {
     setState(() {
       h = h - 20;
       w = w - 20;
