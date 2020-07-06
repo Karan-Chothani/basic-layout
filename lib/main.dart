@@ -506,27 +506,26 @@ class _HomeState extends State<Home> {
   }
 
   void zoomin() {
-    setState(() {
-      if (itemNo == 1) {
-        print(itemNo);
-        h1 = h1 + 10;
-        w1 = w1 + 10;
-      } else if (itemNo == 2){
-        print(itemNo);
-        h2 = h2 + 10;
-        w2 = w2 + 10;
-      } else if (itemNo == 3){
-        print(itemNo);
-        h3 = h3 + 10;
-        w3 = w3 + 10;
-      } else if (itemNo == 4){
-        print(itemNo);
-        h4 = h4 + 10;
-        w4 = w4 + 10;
-      } else {
-        print("NULL");
-      }
-    });
+    if (itemNo == 1) {
+      print(itemNo);
+      h1 = h1 + 10;
+      w1 = w1 + 10;
+    } else if (itemNo == 2) {
+      print(itemNo);
+      h2 = h2 + 10;
+      w2 = w2 + 10;
+    } else if (itemNo == 3) {
+      print(itemNo);
+      h3 = h3 + 10;
+      w3 = w3 + 10;
+    } else if (itemNo == 4) {
+      print(itemNo);
+      h4 = h4 + 10;
+      w4 = w4 + 10;
+    } else {
+      print("NULL");
+    }
+    setState(() {});
   }
 
   void zoomout() {
@@ -535,15 +534,15 @@ class _HomeState extends State<Home> {
         print(itemNo);
         h1 = h1 - 10;
         w1 = w1 - 10;
-      } else if (itemNo == 2){
+      } else if (itemNo == 2) {
         print(itemNo);
         h2 = h2 - 10;
         w2 = w2 - 10;
-      } else if (itemNo == 3){
+      } else if (itemNo == 3) {
         print(itemNo);
         h3 = h3 - 10;
         w3 = w3 - 10;
-      } else if (itemNo == 4){
+      } else if (itemNo == 4) {
         print(itemNo);
         h4 = h4 - 10;
         w4 = w4 - 10;
