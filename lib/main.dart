@@ -38,6 +38,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
+  int itemNo;
 
   double scale = 0.0;
   GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey();
@@ -46,8 +47,14 @@ class _HomeState extends State<Home> {
   final ValueNotifier<Matrix4> notifier3 = ValueNotifier(Matrix4.identity());
   final ValueNotifier<Matrix4> notifier4 = ValueNotifier(Matrix4.identity());
 
-  double h = 100;
-  double w = 100;
+  double h1 = 100;
+  double w1 = 100;
+  double h2 = 100;
+  double w2 = 100;
+  double h3 = 100;
+  double w3 = 100;
+  double h4 = 100;
+  double w4 = 100;
 
   @override
   Widget build(BuildContext context) {
@@ -193,6 +200,7 @@ class _HomeState extends State<Home> {
                   new MatrixGestureDetector(
                     onMatrixUpdate: (m, tm, sm, rm) {
                       notifier1.value = m;
+                      itemNo = 1;
                     },
                     // shouldRotate: false,
                     // shouldScale: true,
@@ -207,9 +215,9 @@ class _HomeState extends State<Home> {
                               Align(
                                 alignment: Alignment(0.0, -0.85),
                                 child: Container(
-                                  width: w,
-                                  height: h,
-                                  color: Colors.green[100],
+                                  width: w1,
+                                  height: h1,
+                                  //color: Colors.green[100],
                                   //color: Colors.purple,
                                   child: DragTarget(
                                     builder: (context, List<int> candidateData,
@@ -218,8 +226,8 @@ class _HomeState extends State<Home> {
                                       return Center(
                                         child: Image(
                                           image: AssetImage('images/part1.jpg'),
-                                          height: h,
-                                          width: w,
+                                          height: h1,
+                                          width: w1,
                                         ),
                                       );
                                     },
@@ -235,6 +243,7 @@ class _HomeState extends State<Home> {
                   new MatrixGestureDetector(
                     onMatrixUpdate: (m, tm, sm, rm) {
                       notifier2.value = m;
+                      itemNo = 2;
                     },
                     // shouldRotate: false,
                     // shouldScale: true,
@@ -249,8 +258,8 @@ class _HomeState extends State<Home> {
                               Align(
                                 alignment: Alignment(0.0, -0.35),
                                 child: Container(
-                                  width: h,
-                                  height: w,
+                                  width: w2,
+                                  height: h2,
                                   //color: Colors.purple,
                                   child: DragTarget(
                                     builder: (context, List<int> candidateData,
@@ -259,8 +268,8 @@ class _HomeState extends State<Home> {
                                       return Center(
                                         child: Image(
                                           image: AssetImage('images/part2.jpg'),
-                                          height: h,
-                                          width: w,
+                                          height: h2,
+                                          width: w2,
                                         ),
                                       );
                                     },
@@ -276,6 +285,7 @@ class _HomeState extends State<Home> {
                   new MatrixGestureDetector(
                     onMatrixUpdate: (m, tm, sm, rm) {
                       notifier3.value = m;
+                      itemNo = 3;
                     },
                     // shouldRotate: false,
                     // shouldScale: true,
@@ -290,8 +300,8 @@ class _HomeState extends State<Home> {
                               Align(
                                 alignment: Alignment(0.0, 0.15),
                                 child: Container(
-                                  width: w,
-                                  height: h,
+                                  width: w3,
+                                  height: h3,
                                   //color: Colors.purple,
                                   child: DragTarget(
                                     builder: (context, List<int> candidateData,
@@ -300,8 +310,8 @@ class _HomeState extends State<Home> {
                                       return Center(
                                         child: Image(
                                           image: AssetImage('images/part3.jpg'),
-                                          height: h,
-                                          width: w,
+                                          height: h3,
+                                          width: w3,
                                         ),
                                       );
                                     },
@@ -317,6 +327,7 @@ class _HomeState extends State<Home> {
                   new MatrixGestureDetector(
                     onMatrixUpdate: (m, tm, sm, rm) {
                       notifier4.value = m;
+                      itemNo = 4;
                     },
                     // shouldRotate: false,
                     // shouldScale: true,
@@ -331,8 +342,8 @@ class _HomeState extends State<Home> {
                               Align(
                                 alignment: Alignment(0.0, 0.65),
                                 child: Container(
-                                  width: w,
-                                  height: h,
+                                  width: w4,
+                                  height: h4,
                                   //color: Colors.purple,
                                   child: DragTarget(
                                     builder: (context, List<int> candidateData,
@@ -341,8 +352,8 @@ class _HomeState extends State<Home> {
                                       return Center(
                                         child: Image(
                                           image: AssetImage('images/part4.jpg'),
-                                          height: h,
-                                          width: w,
+                                          height: h4,
+                                          width: w4,
                                         ),
                                       );
                                     },
@@ -496,19 +507,49 @@ class _HomeState extends State<Home> {
 
   void zoomin() {
     setState(() {
-      h = h + 20;
-      w = w + 20;
-      print(h);
-      print(w);
+      if (itemNo == 1) {
+        print(itemNo);
+        h1 = h1 + 10;
+        w1 = w1 + 10;
+      } else if (itemNo == 2){
+        print(itemNo);
+        h2 = h2 + 10;
+        w2 = w2 + 10;
+      } else if (itemNo == 3){
+        print(itemNo);
+        h3 = h3 + 10;
+        w3 = w3 + 10;
+      } else if (itemNo == 4){
+        print(itemNo);
+        h4 = h4 + 10;
+        w4 = w4 + 10;
+      } else {
+        print("NULL");
+      }
     });
   }
 
   void zoomout() {
     setState(() {
-      h = h - 20;
-      w = w - 20;
-      print(h);
-      print(w);
+      if (itemNo == 1) {
+        print(itemNo);
+        h1 = h1 - 10;
+        w1 = w1 - 10;
+      } else if (itemNo == 2){
+        print(itemNo);
+        h2 = h2 - 10;
+        w2 = w2 - 10;
+      } else if (itemNo == 3){
+        print(itemNo);
+        h3 = h3 - 10;
+        w3 = w3 - 10;
+      } else if (itemNo == 4){
+        print(itemNo);
+        h4 = h4 - 10;
+        w4 = w4 - 10;
+      } else {
+        print("NULL");
+      }
     });
   }
 }
