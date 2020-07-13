@@ -66,7 +66,12 @@ class _ImageGridItemState extends State<ImageGridItem> {
         elevation: 10.0,
         child: new Column(
           children: <Widget>[
-            new Image.memory(imagefile, fit: BoxFit.cover,height: 90.0,width: 100.0,),
+            new GestureDetector(
+                child:new Image.memory(imagefile, fit: BoxFit.cover, height: 90.0,width: 100.0),
+                onTap:(){
+                  print("hii");
+                }
+            ),
             new SizedBox(height: 5.0,), //to add space
             new Text("Eye"),
           ],

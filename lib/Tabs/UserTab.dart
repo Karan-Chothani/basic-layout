@@ -12,7 +12,7 @@ class UserTab extends StatelessWidget {
             Container(
               child: new Text(
                 "USER_PAGE",
-                style: Theme.of(context).textTheme.display1,
+               // style: Theme.of(context).textTheme.display1,
               ),
             ),
             Container(
