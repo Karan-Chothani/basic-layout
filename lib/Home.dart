@@ -12,23 +12,6 @@ import 'Tabs/UserTab.dart';
 import 'Tabs/NotificationTab.dart';
 import 'Tabs/StarTab.dart';
 
-void main() {
-  runApp(new MaterialApp(
-    title: "Firegrid demo",
-    theme: ThemeData(primarySwatch: Colors.purple),
-    home: App(),
-  ));
-}
-
-class App extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Home(),
-    );
-  }
-}
-
 class Home extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -93,7 +76,7 @@ class _HomeState extends State<Home> {
                             child: Text(
                               'Eyes',
                               style:
-                                  TextStyle(fontSize: 20, color: Colors.white),
+                              TextStyle(fontSize: 20, color: Colors.white),
                             ),
                           ),
                         ),
@@ -115,7 +98,7 @@ class _HomeState extends State<Home> {
                             child: Text(
                               'Nose',
                               style:
-                                  TextStyle(fontSize: 20, color: Colors.white),
+                              TextStyle(fontSize: 20, color: Colors.white),
                             ),
                           ),
                         ),
@@ -137,7 +120,7 @@ class _HomeState extends State<Home> {
                             child: Text(
                               'Lips',
                               style:
-                                  TextStyle(fontSize: 20, color: Colors.white),
+                              TextStyle(fontSize: 20, color: Colors.white),
                             ),
                           ),
                         ),
@@ -159,7 +142,7 @@ class _HomeState extends State<Home> {
                             child: Text(
                               'Cheeks',
                               style:
-                                  TextStyle(fontSize: 20, color: Colors.white),
+                              TextStyle(fontSize: 20, color: Colors.white),
                             ),
                           ),
                         ),
@@ -181,7 +164,7 @@ class _HomeState extends State<Home> {
                             child: Text(
                               'Face Style',
                               style:
-                                  TextStyle(fontSize: 20, color: Colors.white),
+                              TextStyle(fontSize: 20, color: Colors.white),
                             ),
                           ),
                         ),
@@ -456,7 +439,7 @@ class _HomeState extends State<Home> {
           BottomNavigationBarItem(
             icon: Icon(Icons.notifications, color: Colors.white),
             title:
-                new Text('Notification', style: TextStyle(color: Colors.white)),
+            new Text('Notification', style: TextStyle(color: Colors.white)),
             backgroundColor: Colors.purple,
           ),
           BottomNavigationBarItem(
