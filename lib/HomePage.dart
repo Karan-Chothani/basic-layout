@@ -12,13 +12,17 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:matrix_gesture_detector/matrix_gesture_detector.dart';
 
 class Home extends StatefulWidget {
+  int eindex;
+  Home({this.eindex});
   @override
-  State<StatefulWidget> createState() {
-    return _HomeState();
+  _HomeState createState() => _HomeState(eindex);
   }
-}
 
 class _HomeState extends State<Home> {
+  int eindex;
+  _HomeState(eindex);
+
+
   int _currentIndex = 0;
   int itemNo;
 
@@ -49,6 +53,7 @@ class _HomeState extends State<Home> {
     "images/eyes/2.png",
     "images/eyes/3.png",
   ];
+
   var nImage = [
     "images/nose/1.png",
     "images/nose/2.png",
@@ -75,7 +80,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text('Firegrid demo'),
         centerTitle: true,
-        backgroundColor: Colors.purple,
+        backgroundColor: Colors.blueAccent,
       ),
       body: Center(
         child: Container(
@@ -99,7 +104,7 @@ class _HomeState extends State<Home> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           RaisedButton(
-                            color: Colors.purple,
+                            color: Colors.blueAccent,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
                             onPressed: () {
@@ -121,7 +126,7 @@ class _HomeState extends State<Home> {
                             width: 5.0,
                           ),
                           RaisedButton(
-                            color: Colors.purple,
+                            color: Colors.blueAccent,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
                             onPressed: () {
@@ -143,7 +148,7 @@ class _HomeState extends State<Home> {
                             width: 5.0,
                           ),
                           RaisedButton(
-                            color: Colors.purple,
+                            color: Colors.blueAccent,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
                             onPressed: () {
@@ -165,7 +170,7 @@ class _HomeState extends State<Home> {
                             width: 5.0,
                           ),
                           RaisedButton(
-                            color: Colors.purple,
+                            color: Colors.blueAccent,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
                             onPressed: () {
@@ -177,29 +182,7 @@ class _HomeState extends State<Home> {
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                'Cheeks',
-                                style:
-                                    TextStyle(fontSize: 20, color: Colors.white),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 5.0,
-                          ),
-                          RaisedButton(
-                            color: Colors.purple,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => EyeScreen()));
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Face Style',
+                                'Face Outline',
                                 style:
                                     TextStyle(fontSize: 20, color: Colors.white),
                               ),
@@ -215,7 +198,7 @@ class _HomeState extends State<Home> {
               ///Main Container
               new Container(
                 width: 550,
-                height: 586,
+                height: 573,
                 child: Container(
                   child: Stack(
                     children: <Widget>[
@@ -249,7 +232,6 @@ class _HomeState extends State<Home> {
                           ],
                         ),
                       ),
-
                       /// EYES
                       new Align(
                         child: MatrixGestureDetector(
@@ -268,7 +250,7 @@ class _HomeState extends State<Home> {
                                 child: Stack(
                                   children: <Widget>[
                                     Align(
-                                      alignment: Alignment(0, -0.6),
+                                      alignment: Alignment(0, -0.1),
                                       child: Container(
                                         width: ew,
                                         height: eh,
@@ -282,15 +264,15 @@ class _HomeState extends State<Home> {
                                               );
                                             },
                                             itemCount: eImage.length,
-                                            itemWidth: 200,
-                                            itemHeight: 200,
+                                            itemWidth: 300,
+                                            itemHeight: 600,
                                             //control: new SwiperControl(),
-                                            layout: SwiperLayout.DEFAULT,
+                                            layout: SwiperLayout.CUSTOM,
                                             customLayoutOption:
-                                                CustomLayoutOption(
-                                                        startIndex: -1,
-                                                        stateCount: 3)
-                                                    .addRotate([
+                                            CustomLayoutOption(
+                                                startIndex: -1,
+                                                stateCount: 3)
+                                                .addRotate([
                                               0 / 180,
                                               0.0,
                                               0 / 180
@@ -331,7 +313,7 @@ class _HomeState extends State<Home> {
                                 child: Stack(
                                   children: <Widget>[
                                     Align(
-                                      alignment: Alignment(0, -0.3),
+                                      alignment: Alignment(0, 0.1),
                                       child: Container(
                                         width: nw,
                                         height: nh,
@@ -346,7 +328,7 @@ class _HomeState extends State<Home> {
                                             itemWidth: 100,
                                             itemHeight: 100,
                                             //control: new SwiperControl(),
-                                            layout: SwiperLayout.DEFAULT,
+                                            layout: SwiperLayout.CUSTOM,
                                             customLayoutOption:
                                                 CustomLayoutOption(
                                                         startIndex: -1,
@@ -392,7 +374,7 @@ class _HomeState extends State<Home> {
                                 child: Stack(
                                   children: <Widget>[
                                     Align(
-                                      alignment: Alignment(0.0, -0.1),
+                                      alignment: Alignment(0.0, 0.5),
                                       child: Container(
                                         width: lw,
                                         height: lh,
@@ -441,13 +423,13 @@ class _HomeState extends State<Home> {
                           animatedIcon: AnimatedIcons.menu_arrow,
                           animatedIconTheme: IconThemeData(size: 24.0),
                           closeManually: true,
-                          marginRight: 21.5,
-                          marginBottom: 23.5,
+                          marginRight: 31.5,
+                          marginBottom: 28.5,
                           curve: Curves.easeIn,
                           overlayColor: Colors.black,
                           overlayOpacity: 0.3,
                           foregroundColor: Colors.white,
-                          backgroundColor: Colors.purple,
+                          backgroundColor: Colors.red,
                           children: [
                             SpeedDialChild(
                               child: Icon(
@@ -477,9 +459,9 @@ class _HomeState extends State<Home> {
 
                       ///RECOMMEND BUTTON
                       new Align(
-                        alignment: Alignment(0,0.98),
+                        alignment: Alignment(-0.3,0.95),
                         child: new RaisedButton(
-                          color: Colors.purple,
+                          color: Colors.red,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),
                           onPressed: () {},
@@ -507,28 +489,28 @@ class _HomeState extends State<Home> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home, color: Colors.white),
             title: new Text('Home', style: TextStyle(color: Colors.white)),
-            backgroundColor: Colors.purple,
+            backgroundColor: Colors.blueAccent,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.list, color: Colors.white),
             title: new Text('List', style: TextStyle(color: Colors.white)),
-            backgroundColor: Colors.purple,
+            backgroundColor: Colors.blueAccent,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person, color: Colors.white),
             title: new Text('User', style: TextStyle(color: Colors.white)),
-            backgroundColor: Colors.purple,
+            backgroundColor: Colors.blueAccent,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.notifications, color: Colors.white),
             title:
                 new Text('Notification', style: TextStyle(color: Colors.white)),
-            backgroundColor: Colors.purple,
+            backgroundColor: Colors.blueAccent,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.stars, color: Colors.white),
             title: new Text('Star', style: TextStyle(color: Colors.white)),
-            backgroundColor: Colors.purple,
+            backgroundColor: Colors.blueAccent,
           ),
         ],
         onTap: onTabTapped,
