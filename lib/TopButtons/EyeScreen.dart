@@ -51,7 +51,7 @@ class _ImageGridItemState extends State<ImageGridItem> {
 
   getImage(){
     int MAX_SIZE = 4*1024*1024;
-    eyeReference.child("image_${widget._index}.jpg").getData(MAX_SIZE).then((data){
+    eyeReference.child("eye_${widget._index}.png").getData(MAX_SIZE).then((data){
       this.setState((){
         imagefile = data;
         //print(widget._index);
@@ -70,7 +70,7 @@ class _ImageGridItemState extends State<ImageGridItem> {
         child: new Column(
           children: <Widget>[
             new GestureDetector(
-                child:new Image.memory(imagefile, fit: BoxFit.cover, height: 90.0,width: 100.0),
+                child:new Image.memory(imagefile, fit: BoxFit.cover, ),
                 onTap:(){
                   print("INDEX");
                   print(widget._index);
