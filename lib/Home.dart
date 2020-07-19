@@ -40,6 +40,7 @@ class _HomeState extends State<Home> {
   double h4 = 100;
   double w4 = 100;
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -386,7 +387,7 @@ class _HomeState extends State<Home> {
                         backgroundColor: Colors.purple,
                         label: "Zoom In",
                         labelStyle: TextStyle(fontSize: 14.5),
-                        onTap: null,
+                        onTap: zoomin,
                       ),
                       SpeedDialChild(
                         child: Icon(
@@ -397,7 +398,7 @@ class _HomeState extends State<Home> {
                         backgroundColor: Colors.purple,
                         label: "Zoom Out",
                         labelStyle: TextStyle(fontSize: 14.5),
-                        onTap:null,
+                        onTap: zoomout,
                       ),
                     ],
                   ) :
