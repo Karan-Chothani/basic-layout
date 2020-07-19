@@ -31,6 +31,7 @@ dependencies:
   drag_select_grid_view:
   collection: ^1.14.11
   flutter_swiper: 1.1.6
+  device_preview: ^0.4.7
 
 dev_dependencies:
   flutter_test:

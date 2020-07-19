@@ -1,7 +1,7 @@
+import 'package:firebasetogrid/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'dart:typed_data';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:firebasetogrid/PrintIndex.dart';
 
 class EyeScreen extends StatelessWidget {
 
@@ -51,7 +51,7 @@ class _ImageGridItemState extends State<ImageGridItem> {
 
   getImage(){
     int MAX_SIZE = 4*1024*1024;
-    eyeReference.child("image_${widget._index}.jpg").getData(MAX_SIZE).then((data){
+    eyeReference.child("eye_${widget._index}.png").getData(MAX_SIZE).then((data){
       this.setState((){
         imagefile = data;
         //print(widget._index);
@@ -75,7 +75,7 @@ class _ImageGridItemState extends State<ImageGridItem> {
                   print("INDEX");
                   print(widget._index);
                  //print("abc");
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => PrintIndex(index: widget._index,)));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) =>Home(eindex: widget._index,)));
                 }
             ),
             new SizedBox(height: 5.0,), //to add space
