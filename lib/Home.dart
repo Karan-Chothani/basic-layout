@@ -45,7 +45,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Firegrid demo'),
+        title: Text('J.AI.STICE'),
         centerTitle: true,
         backgroundColor: Colors.purple,
       ),
@@ -69,9 +69,7 @@ class _HomeState extends State<Home> {
                               borderRadius: BorderRadius.circular(10)),
                           onPressed: () {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => EyeScreen()));
+                                context, MaterialPageRoute(builder: (context) => EyeScreen()));
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -121,28 +119,6 @@ class _HomeState extends State<Home> {
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               'Lips',
-                              style:
-                              TextStyle(fontSize: 20, color: Colors.white),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 5.0,
-                        ),
-                        RaisedButton(
-                          color: Colors.purple,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => EyeScreen()));
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              'Cheeks',
                               style:
                               TextStyle(fontSize: 20, color: Colors.white),
                             ),

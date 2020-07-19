@@ -5,8 +5,6 @@ import 'Home.dart';
 
 void main() {
   runApp(new MaterialApp(
-    title: "Firegrid demo",
-    theme: ThemeData(primarySwatch: Colors.purple),
     home: App(),
   ));
 }
