@@ -22,7 +22,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
   int itemNo;
-  int demo = 0;
+  bool sd = false;
 
   double scale = 0.0;
   GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey();
@@ -185,7 +185,9 @@ class _HomeState extends State<Home> {
                     onMatrixUpdate: (m, tm, sm, rm) {
                       notifier1.value = m;
                       itemNo = 1;
-                      demo = 1;
+                      setState(() {
+                        sd = true;
+                      });
                     },
                     // shouldRotate: false,
                     // shouldScale: true,
@@ -229,7 +231,9 @@ class _HomeState extends State<Home> {
                     onMatrixUpdate: (m, tm, sm, rm) {
                       notifier2.value = m;
                       itemNo = 2;
-                      demo = 1;
+                      setState(() {
+                        sd = true;
+                      });
                     },
                     // shouldRotate: false,
                     // shouldScale: true,
@@ -272,7 +276,9 @@ class _HomeState extends State<Home> {
                     onMatrixUpdate: (m, tm, sm, rm) {
                       notifier3.value = m;
                       itemNo = 3;
-                      demo = 1;
+                      setState(() {
+                        sd = true;
+                      });
                     },
                     // shouldRotate: false,
                     // shouldScale: true,
@@ -315,7 +321,9 @@ class _HomeState extends State<Home> {
                     onMatrixUpdate: (m, tm, sm, rm) {
                       notifier4.value = m;
                       itemNo = 4;
-                      demo = 1;
+                      setState(() {
+                        sd = true;
+                      });
                     },
                     // shouldRotate: false,
                     // shouldScale: true,
@@ -354,48 +362,46 @@ class _HomeState extends State<Home> {
                       },
                     ),
                   ),
-                  if ( demo == 1) ...[
-                    new SpeedDial(
-                      animatedIcon: AnimatedIcons.menu_arrow,
-                      animatedIconTheme: IconThemeData(size: 24.0),
-                      closeManually: false,
-                      marginRight: 21.5,
-                      marginBottom: 23.5,
-                      curve: Curves.easeIn,
-                      overlayColor: Colors.black,
-                      overlayOpacity: 0.3,
-                      foregroundColor: Colors.white,
-                      backgroundColor: Colors.purple,
-                      //tooltip: "Speed Dial123",
-                      //closeManually: true,
-                      children: [
-                        SpeedDialChild(
-                          child: Icon(
-                            Icons.zoom_in,
-                            size: 30,
-                          ),
-                          foregroundColor: Colors.white,
-                          backgroundColor: Colors.purple,
-                          label: "Zoom In",
-                          labelStyle: TextStyle(fontSize: 14.5),
-                          onTap: zoomin,
+                  sd == true ?
+                  new SpeedDial(
+                    animatedIcon: AnimatedIcons.menu_arrow,
+                    animatedIconTheme: IconThemeData(size: 24.0),
+                    closeManually: false,
+                    marginRight: 21.5,
+                    marginBottom: 23.5,
+                    curve: Curves.easeIn,
+                    overlayColor: Colors.black,
+                    overlayOpacity: 0.3,
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.purple,
+                    //tooltip: "Speed Dial123",
+                    //closeManually: true,
+                    children: [
+                      SpeedDialChild(
+                        child: Icon(
+                          Icons.zoom_in,
+                          size: 30,
                         ),
-                        SpeedDialChild(
-                          child: Icon(
-                            Icons.zoom_out,
-                            size: 30,
-                          ),
-                          foregroundColor: Colors.white,
-                          backgroundColor: Colors.purple,
-                          label: "Zoom Out",
-                          labelStyle: TextStyle(fontSize: 14.5),
-                          onTap: zoomout,
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.purple,
+                        label: "Zoom In",
+                        labelStyle: TextStyle(fontSize: 14.5),
+                        onTap: null,
+                      ),
+                      SpeedDialChild(
+                        child: Icon(
+                          Icons.zoom_out,
+                          size: 30,
                         ),
-                      ],
-                    ),
-                  ] else ...[
-
-                  ],
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.purple,
+                        label: "Zoom Out",
+                        labelStyle: TextStyle(fontSize: 14.5),
+                        onTap:null,
+                      ),
+                    ],
+                  ) :
+                  new Visibility(child: new SizedBox(), visible: false,) ,
                 ],
               ),
             ),
@@ -542,11 +548,5 @@ class _HomeState extends State<Home> {
         print("NULL");
       }
     });
-  }
-
-  Widget getWidget (){
-    if (demo == 1){
-
-    }
   }
 }
