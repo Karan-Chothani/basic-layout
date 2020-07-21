@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:matrix_gesture_detector/matrix_gesture_detector.dart';
 
+import 'SideMenu.dart';
 import 'TopButtons/EyeScreen.dart';
 import 'TopButtons/NoseScreen.dart';
 import 'TopButtons/LipsScreen.dart';
@@ -44,6 +45,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: SideMenu(),
       appBar: AppBar(
         title: Text('J.AI.STICE'),
         centerTitle: true,
@@ -154,7 +156,7 @@ class _HomeState extends State<Home> {
             ),
             new Container(
               color: Colors.purple[100],
-              height: 574.5,
+              height: 630.5,
               //width: 1000.0,
               child: new Stack(
                 children: <Widget>[
@@ -409,39 +411,6 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.shifting,
-        currentIndex: _currentIndex,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.white),
-            title: new Text('Home', style: TextStyle(color: Colors.white)),
-            backgroundColor: Colors.purple,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list, color: Colors.white),
-            title: new Text('List', style: TextStyle(color: Colors.white)),
-            backgroundColor: Colors.purple,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person, color: Colors.white),
-            title: new Text('User', style: TextStyle(color: Colors.white)),
-            backgroundColor: Colors.purple,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications, color: Colors.white),
-            title:
-            new Text('Notification', style: TextStyle(color: Colors.white)),
-            backgroundColor: Colors.purple,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.stars, color: Colors.white),
-            title: new Text('Star', style: TextStyle(color: Colors.white)),
-            backgroundColor: Colors.purple,
-          ),
-        ],
-        onTap: onTabTapped,
-      ),
     );
   }
 
@@ -527,3 +496,4 @@ class _HomeState extends State<Home> {
     });
   }
 }
+

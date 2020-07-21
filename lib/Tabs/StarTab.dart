@@ -1,3 +1,4 @@
+import 'package:firebasetogrid/SideMenu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -5,6 +6,7 @@ class StarTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      drawer: SideMenu(),
       body: new Center(
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,

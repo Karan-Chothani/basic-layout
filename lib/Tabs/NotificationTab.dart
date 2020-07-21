@@ -1,10 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../SideMenu.dart';
+
 class NotificationTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      drawer: SideMenu(),
+      appBar: AppBar(
+        title: Text('Notification'),
+        centerTitle: true,
+        backgroundColor: Colors.purple,
+      ),
       body: new Center(
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -12,7 +20,7 @@ class NotificationTab extends StatelessWidget {
             Container(
               child: new Text(
                 "NOTIFICATION_PAGE",
-                style: Theme.of(context).textTheme.display1,
+                //style: Theme.of(context).textTheme.display1,
               ),
             ),
             Container(

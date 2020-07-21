@@ -1,10 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../SideMenu.dart';
+
 class ListTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      drawer: SideMenu(),
+      appBar: AppBar(
+        title: Text('List'),
+        centerTitle: true,
+        backgroundColor: Colors.purple,
+      ),
       body: new Center(
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
