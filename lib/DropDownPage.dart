@@ -2,14 +2,11 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 import 'package:firebasetogrid/Home.dart';
-import 'package:firebasetogrid/face_part.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 import 'dart:ui';
 import 'package:shared_preferences/shared_preferences.dart';
-
 
 class DropDownPage extends StatefulWidget {
   @override
@@ -17,35 +14,117 @@ class DropDownPage extends StatefulWidget {
 }
 
 class _DropDownPageState extends State<DropDownPage> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        // This is the theme of your application.
+        //
+        // Try running your application with "flutter run". You'll see the
+        // application has a blue toolbar. Then, without quitting the app, try
+        // changing the primarySwatch below to Colors.green and then invoke
+        // "hot reload" (press "r" in the console where you ran "flutter run",
+        // or simply save your changes to "hot reload" in a Flutter IDE).
+        // Notice that the counter didn't reset back to zero; the application
+        // is not restarted.
+        primarySwatch: Colors.blue,
+      ),
+      home: RequirementPage(),
+    );
+  }
+}
+
+class RequirementPage extends StatefulWidget {
+  @override
+  _RequirementPageState createState() => _RequirementPageState();
+}
+
+class _RequirementPageState extends State<RequirementPage> {
   SharedPreferences prefs;
+
   List<String> mouth_str = List<String>();
   List<String> eye_str = List<String>();
   List<String> nose_str = List<String>();
+  List<String> forehead_str = List<String>();
+  List<String> lowerface_str = List<String>();
+
+  List<String> moustache_str = List<String>();
+  List<String> hats_str = List<String>();
+  List<String> glass_str = List<String>();
+  List<String> beard_str = List<String>();
+
+  List<String> mouth_criminal = List<String>();
+  List<String> eye_criminal = List<String>();
+  List<String> nose_criminal = List<String>();
+  List<String> forehead_criminal = List<String>();
+  List<String> lowerface_criminal = List<String>();
+
   var loading = false;
-  List<String> forehead = ["big", "small", "medium"];
-  List<String> eyes = ["big", "small", "medium"];
-  List<String> nose = ["big", "small", "medium"];
-  List<String> mouth = ["big", "small", "medium"];
-  List<String> facetype = ["round", "diamond", "square", "triangle", "rectangle", "Oblong"];
-  var _currentForeheadSelected;
-  var _currentFaceSelected;
-  var _currentEyesSelected;
-  var _currentNoseSelected;
-  var _currentMouthSelected;
+  List<String> gender = ["Male", "Female"];
+  List<String> eye_size = ["Large", "Small", "Medium"];
+  List<String> eye_shape = ["Slanted", "Round"];
+  List<String> nose_length = ["Long", "Short"];
+  List<String> nose_width = ["Wide", "Narrow"];
+  List<String> nose_type = ["Round", "Pointy"];
+  List<String> mouth = ["Big", "Thin", "Medium"];
+  List<String> faceshape = [
+    "Round",
+    "Diamond",
+    "Square",
+    "Triangle",
+    "Heart",
+    "Oblong"
+  ];
+  List<String> forehead_type = ["Small", "Medium", "Large"];
+  List<String> has_beard = [
+    "Yes",
+    "No",
+  ];
+  List<String> has_moustache = [
+    "Yes",
+    "No",
+  ];
+
+  var _currentGender;
+  var _currentEyeSize;
+
+  var _currentEyeShape;
+
+  var _currentNoseLength;
+
+  var _currentNoseWidth;
+  var _currentNoseType;
+  var _currentMouth;
+
+  var _currentFaceShape;
+
+  var _currentForeheadType;
+  var male = false;
+  var _hasmoustache;
+  var _hasbeard;
 
   @override
   Widget build(BuildContext context) {
+    // This method is rerun every time setState is called, for instance as done
+    // by the _incrementCounter method above.
+    //
+    // The Flutter framework has been optimized to make rerunning build methods
+    // fast, so that you can just rebuild anything that needs updating rather
+    // than having to individually change instances of widgets.
     return Scaffold(
         appBar: AppBar(
-          title: Text("Select Feature"),
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          title: Text("List"),
         ),
         body: Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: <
               Widget>[
             Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  Text("ForeHead Type",
+                  Text("Gender",
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
@@ -53,7 +132,7 @@ class _DropDownPageState extends State<DropDownPage> {
                           fontSize: 15)),
                   DropdownButton<String>(
                     autofocus: true,
-                    items: forehead.map((String dropDownStringItem) {
+                    items: gender.map((String dropDownStringItem) {
                       return DropdownMenuItem<String>(
                         value: dropDownStringItem,
                         child: Text(dropDownStringItem,
@@ -67,16 +146,81 @@ class _DropDownPageState extends State<DropDownPage> {
                     onChanged: (String newValueSelected) {
                       // Your code to execute, when a menu item is selected from drop down
                       setState(() {
-                        _currentForeheadSelected = newValueSelected;
+                        _currentGender = newValueSelected;
+                        if (_currentGender == "Male") {
+                          male = true;
+                        } else {
+                          male = false;
+                        }
                       });
                     },
-                    value: _currentForeheadSelected,
+                    value: _currentGender,
                   )
                 ]),
             Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  Text("Face Type",
+                  Text("Face Shape",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Times new roman",
+                          fontSize: 15)),
+                  DropdownButton<String>(
+                    items: faceshape.map((String dropDownStringItem) {
+                      return DropdownMenuItem<String>(
+                        value: dropDownStringItem,
+                        child: Text(dropDownStringItem,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "Times new roman",
+                                fontSize: 15)),
+                      );
+                    }).toList(),
+                    onChanged: (String newValueSelected) {
+                      // Your code to execute, when a menu item is selected from drop down
+                      setState(() {
+                        _currentFaceShape = newValueSelected;
+                      });
+                    },
+                    value: _currentFaceShape,
+                  )
+                ]),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Text("Forehead Type",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Times new roman",
+                          fontSize: 15)),
+                  DropdownButton<String>(
+                    items: forehead_type.map((String dropDownStringItem) {
+                      return DropdownMenuItem<String>(
+                        value: dropDownStringItem,
+                        child: Text(dropDownStringItem,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "Times new roman",
+                                fontSize: 15)),
+                      );
+                    }).toList(),
+                    onChanged: (String newValueSelected) {
+                      // Your code to execute, when a menu item is selected from drop down
+                      setState(() {
+                        _currentForeheadType = newValueSelected;
+                      });
+                    },
+                    value: _currentForeheadType,
+                  )
+                ]),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Text("Eye Size",
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
@@ -84,7 +228,7 @@ class _DropDownPageState extends State<DropDownPage> {
                           fontSize: 15)),
                   DropdownButton<String>(
                     autofocus: true,
-                    items: facetype.map((String dropDownStringItem) {
+                    items: eye_size.map((String dropDownStringItem) {
                       return DropdownMenuItem<String>(
                         value: dropDownStringItem,
                         child: Text(dropDownStringItem,
@@ -98,23 +242,147 @@ class _DropDownPageState extends State<DropDownPage> {
                     onChanged: (String newValueSelected) {
                       // Your code to execute, when a menu item is selected from drop down
                       setState(() {
-                        _currentFaceSelected = newValueSelected;
+                        _currentEyeSize = newValueSelected;
                       });
                     },
-                    value: _currentFaceSelected,
+                    value: _currentEyeSize,
                   )
                 ]),
             Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  Text("Eyes type",
+                  Text("Eye Shape",
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                           fontFamily: "Times new roman",
                           fontSize: 15)),
                   DropdownButton<String>(
-                    items: eyes.map((
+                    autofocus: true,
+                    items: eye_shape.map((String dropDownStringItem) {
+                      return DropdownMenuItem<String>(
+                        value: dropDownStringItem,
+                        child: Text(dropDownStringItem,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "times new roman",
+                                fontSize: 15)),
+                      );
+                    }).toList(),
+                    onChanged: (String newValueSelected) {
+                      // Your code to execute, when a menu item is selected from drop down
+                      setState(() {
+                        _currentEyeShape = newValueSelected;
+                      });
+                    },
+                    value: _currentEyeShape,
+                  )
+                ]),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Text("Nose Length",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Times new roman",
+                          fontSize: 15)),
+                  DropdownButton<String>(
+                    autofocus: true,
+                    items: nose_length.map((String dropDownStringItem) {
+                      return DropdownMenuItem<String>(
+                        value: dropDownStringItem,
+                        child: Text(dropDownStringItem,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "times new roman",
+                                fontSize: 15)),
+                      );
+                    }).toList(),
+                    onChanged: (String newValueSelected) {
+                      // Your code to execute, when a menu item is selected from drop down
+                      setState(() {
+                        _currentNoseLength = newValueSelected;
+                      });
+                    },
+                    value: _currentNoseLength,
+                  )
+                ]),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Text("Nose Width",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Times new roman",
+                          fontSize: 15)),
+                  DropdownButton<String>(
+                    autofocus: true,
+                    items: nose_width.map((String dropDownStringItem) {
+                      return DropdownMenuItem<String>(
+                        value: dropDownStringItem,
+                        child: Text(dropDownStringItem,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "times new roman",
+                                fontSize: 15)),
+                      );
+                    }).toList(),
+                    onChanged: (String newValueSelected) {
+                      // Your code to execute, when a menu item is selected from drop down
+                      setState(() {
+                        _currentNoseWidth = newValueSelected;
+                      });
+                    },
+                    value: _currentNoseWidth,
+                  )
+                ]),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Text("Nose Type",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Times new roman",
+                          fontSize: 15)),
+                  DropdownButton<String>(
+                    autofocus: true,
+                    items: nose_type.map((String dropDownStringItem) {
+                      return DropdownMenuItem<String>(
+                        value: dropDownStringItem,
+                        child: Text(dropDownStringItem,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "times new roman",
+                                fontSize: 15)),
+                      );
+                    }).toList(),
+                    onChanged: (String newValueSelected) {
+                      // Your code to execute, when a menu item is selected from drop down
+                      setState(() {
+                        _currentNoseType = newValueSelected;
+                      });
+                    },
+                    value: _currentNoseType,
+                  )
+                ]),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Text("Mouth Size",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Times new roman",
+                          fontSize: 15)),
+                  DropdownButton<String>(
+                    items: mouth.map((
                         String dropDownStringItem,
                         ) {
                       return DropdownMenuItem<String>(
@@ -130,23 +398,26 @@ class _DropDownPageState extends State<DropDownPage> {
                     onChanged: (String newValueSelected) {
                       // Your code to execute, when a menu item is selected from drop down
                       setState(() {
-                        _currentEyesSelected = newValueSelected;
+                        _currentMouth = newValueSelected;
                       });
                     },
-                    value: _currentEyesSelected,
+                    value: _currentMouth,
                   )
                 ]),
-            Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            male
+                ? Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  Text("Nose type",
+                  Text("Has Beard?",
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                           fontFamily: "Times new roman",
                           fontSize: 15)),
                   DropdownButton<String>(
-                    items: nose.map((String dropDownStringItem) {
+                    items: has_beard.map((
+                        String dropDownStringItem,
+                        ) {
                       return DropdownMenuItem<String>(
                         value: dropDownStringItem,
                         child: Text(dropDownStringItem,
@@ -160,23 +431,27 @@ class _DropDownPageState extends State<DropDownPage> {
                     onChanged: (String newValueSelected) {
                       // Your code to execute, when a menu item is selected from drop down
                       setState(() {
-                        _currentNoseSelected = newValueSelected;
+                        _hasbeard = newValueSelected;
                       });
                     },
-                    value: _currentNoseSelected,
+                    value: _hasbeard,
                   )
-                ]),
-            Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                ])
+                : new Text(""),
+            male
+                ? Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  Text("Mouth type",
+                  Text("Has Moustache?",
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                           fontFamily: "Times new roman",
                           fontSize: 15)),
                   DropdownButton<String>(
-                    items: mouth.map((String dropDownStringItem) {
+                    items: has_moustache.map((
+                        String dropDownStringItem,
+                        ) {
                       return DropdownMenuItem<String>(
                         value: dropDownStringItem,
                         child: Text(dropDownStringItem,
@@ -190,12 +465,13 @@ class _DropDownPageState extends State<DropDownPage> {
                     onChanged: (String newValueSelected) {
                       // Your code to execute, when a menu item is selected from drop down
                       setState(() {
-                        _currentMouthSelected = newValueSelected;
+                        _hasmoustache = newValueSelected;
                       });
                     },
-                    value: _currentMouthSelected,
+                    value: _hasmoustache,
                   )
-                ]),
+                ])
+                : new Text(""),
             loading
                 ? Center(child: CircularProgressIndicator())
                 : FlatButton(
@@ -207,94 +483,14 @@ class _DropDownPageState extends State<DropDownPage> {
                         fontSize: 20)),
                 color: Colors.blue,
                 onPressed: () async {
-                  await _onDropDownItemSelected();
-                  eye_str.clear();
-                  nose_str.clear();
-                  mouth_str.clear();
-
-                  Future<List<facial>> elist = facial.alleyes();
-                  List<facial> alleyes = new List<facial>();
-
-                  elist.then((value) async {
-                    for (var item in value) {
-                      alleyes.add(new facial(
-                          criminal_id: item.criminal_id,
-                          part_size: item.part_size,
-                          link: item.link));
-                      Uint8List bytes =
-                      (await NetworkAssetBundle(Uri.parse(item.link))
-                          .load(item.link))
-                          .buffer
-                          .asUint8List();
-                      eye_str.add(base64.encode(bytes));
-                      print(bytes);
-                    }
-
-                    prefs.setStringList("eye_list", eye_str);
-                  });
-                  Future<List<facial>> nlist = facial.allnose();
-                  List<facial> allnose = new List<facial>();
-
-                  nlist.then((value) async {
-                    for (var item in value) {
-                      allnose.add(new facial(
-                          criminal_id: item.criminal_id,
-                          part_size: item.part_size,
-                          link: item.link));
-                      Uint8List bytes =
-                      (await NetworkAssetBundle(Uri.parse(item.link))
-                          .load(item.link))
-                          .buffer
-                          .asUint8List();
-                      nose_str.add(base64.encode(bytes));
-                    }
-
-                    prefs.setStringList("nose_list", nose_str);
-                  });
-                  Future<List<facial>> mlist = facial.allmouth();
-                  List<facial> allmouth = new List<facial>();
-                  mlist.then((value) async {
-                    for (var item in value) {
-                      allmouth.add(new facial(
-                          criminal_id: item.criminal_id,
-                          part_size: item.part_size,
-                          link: item.link));
-                      Uint8List bytes =
-                      (await NetworkAssetBundle(Uri.parse(item.link))
-                          .load(item.link))
-                          .buffer
-                          .asUint8List();
-                      mouth_str.add(base64.encode(bytes));
-                    }
-
-                    prefs.setStringList("mouth_list", mouth_str);
-                  });
-
-                  setState(() {
-                    loading = false;
-                  });
-
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Home()));
-                })
-          ]),
-        ));
-    // This trailing comma makes auto-formatting nicer for build methods.
-  }
-
-  Future<Uint8List> _onDropDownItemSelected() async {
-    prefs = await SharedPreferences.getInstance();
-    setState(() {
-      loading = true;
-      prefs.setString("eyes", _currentEyesSelected);
-
-      prefs.setString("nose", _currentNoseSelected);
-
-      prefs.setString("mouth", _currentMouthSelected);
-
-      prefs.setString("facetype", _currentFaceSelected);
-
-      prefs.setString("forehead", _currentForeheadSelected);
-    });
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Home()));
+                  }),
+          ]
+        ),
+        )
+    );
   }
 }

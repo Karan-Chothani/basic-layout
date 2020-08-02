@@ -1,5 +1,3 @@
-
-
 import 'dart:convert';
 
 
@@ -8,13 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 
 import 'package:flutter/material.dart';
-
-
-
-
 class MouthFetch extends StatelessWidget {
-
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
