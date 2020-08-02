@@ -1,7 +1,9 @@
+
+import 'package:firebasetogrid/Home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'Home.dart';
 
+import 'DropDownPage.dart';
 
 void main() {
   runApp(new MaterialApp(
@@ -13,7 +15,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Home(),
+      home: DropDownPage(),
     );
   }
 }

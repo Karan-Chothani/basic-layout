@@ -7,7 +7,7 @@ class EyeScreen extends StatelessWidget {
 
   Widget makeImagesGrid(){
     return GridView.builder(
-        itemCount: 8,
+        itemCount: 3,
         gridDelegate:
         SliverGridDelegateWithFixedCrossAxisCount (crossAxisCount: 3),
         itemBuilder: (context,index){
@@ -34,6 +34,7 @@ class ImageGridItem extends StatefulWidget {
 
   int _index;
   int custom;
+  int count = 1;
 
   ImageGridItem(int index){
     this._index = index;

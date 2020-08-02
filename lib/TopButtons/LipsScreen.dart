@@ -1,3 +1,4 @@
+import 'package:firebasetogrid/PrintIndex.dart';
 import 'package:flutter/material.dart';
 import 'dart:typed_data';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -6,7 +7,7 @@ class LipsScreen extends StatelessWidget {
 
   Widget makeImagesGrid(){
     return GridView.builder(
-        itemCount: 3,
+        itemCount: 4,
         gridDelegate:
         SliverGridDelegateWithFixedCrossAxisCount (crossAxisCount: 3),
         itemBuilder: (context,index){
@@ -32,10 +33,11 @@ class LipsScreen extends StatelessWidget {
 class ImageGridItem extends StatefulWidget {
 
   int _index;
-
+  int custom;
 
   ImageGridItem(int index){
     this._index = index;
+    //print("INdex: $_index");
   }
 
   @override
@@ -45,13 +47,14 @@ class ImageGridItem extends StatefulWidget {
 class _ImageGridItemState extends State<ImageGridItem> {
 
   Uint8List imagefile;
-  StorageReference lipsReference = FirebaseStorage.instance.ref().child("lips");
+  StorageReference eyeReference = FirebaseStorage.instance.ref().child("lips");
 
   getImage(){
     int MAX_SIZE = 4*1024*1024;
-    lipsReference.child("lips${widget._index}.jpg").getData(MAX_SIZE).then((data){
+    eyeReference.child("lips${widget._index}.png").getData(MAX_SIZE).then((data){
       this.setState((){
         imagefile = data;
+        //print(widget._index);
       });
     }).catchError((error){
 
@@ -66,18 +69,19 @@ class _ImageGridItemState extends State<ImageGridItem> {
         elevation: 10.0,
         child: new Column(
           children: <Widget>[
-            GestureDetector(
-            child:new Image.memory(imagefile, fit: BoxFit.cover, height: 50.0,width: 100.0
-            ),
+            new GestureDetector(
+                child:new Image.memory(imagefile, fit: BoxFit.cover, ),
                 onTap:(){
-              print("hii");
+                  print("INDEX");
+                  print(widget._index);
+                  //print("abc");
+                  Navigator.push(context, MaterialPageRoute(builder: (context) =>PrintIndex(index: widget._index,)));
                 }
             ),
             new SizedBox(height: 5.0,), //to add space
             new Text("Lips"),
           ],
         ),
-        //child: new Image.memory(imagefile, fit: BoxFit.cover,height: 90.0,width: 100.0,),
       );
     }
   }

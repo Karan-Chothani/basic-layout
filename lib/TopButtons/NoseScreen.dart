@@ -1,3 +1,4 @@
+import 'package:firebasetogrid/PrintIndex.dart';
 import 'package:flutter/material.dart';
 import 'dart:typed_data';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -18,7 +19,7 @@ class NoseScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Nose"),
+        title: Text("Noses"),
         backgroundColor: Colors.purple,
       ),
       body: Container(
@@ -32,10 +33,11 @@ class NoseScreen extends StatelessWidget {
 class ImageGridItem extends StatefulWidget {
 
   int _index;
-
+  int custom;
 
   ImageGridItem(int index){
     this._index = index;
+    //print("INdex: $_index");
   }
 
   @override
@@ -45,13 +47,14 @@ class ImageGridItem extends StatefulWidget {
 class _ImageGridItemState extends State<ImageGridItem> {
 
   Uint8List imagefile;
-  StorageReference noseReference = FirebaseStorage.instance.ref().child("noses");
+  StorageReference eyeReference = FirebaseStorage.instance.ref().child("noses");
 
   getImage(){
     int MAX_SIZE = 4*1024*1024;
-    noseReference.child("nose${widget._index}.jpg").getData(MAX_SIZE).then((data){
+    eyeReference.child("nose${widget._index}.png").getData(MAX_SIZE).then((data){
       this.setState((){
         imagefile = data;
+        //print(widget._index);
       });
     }).catchError((error){
 
@@ -67,16 +70,18 @@ class _ImageGridItemState extends State<ImageGridItem> {
         child: new Column(
           children: <Widget>[
             new GestureDetector(
-                child:new Image.memory(imagefile, fit: BoxFit.cover,),
+                child:new Image.memory(imagefile, fit: BoxFit.scaleDown,height: 100,width: 100, ),
                 onTap:(){
-                  print("hii");
+                  print("INDEX");
+                  print(widget._index);
+                  //print("abc");
+                  Navigator.push(context, MaterialPageRoute(builder: (context) =>PrintIndex(index: widget._index,)));
                 }
             ),
             new SizedBox(height: 5.0,), //to add space
             new Text("Nose"),
           ],
         ),
-        //child: new Image.memory(imagefile, fit: BoxFit.cover,height: 90.0,width: 100.0,),
       );
     }
   }
